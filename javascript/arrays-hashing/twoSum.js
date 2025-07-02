@@ -7,25 +7,25 @@ function twoSum(nums, target) {
   //     }
   // }
 
-  let hashset = new Set();
+  let hashmap = new Map();
 
   for (let i = 0; i < nums.length; i++) {
-    let confirmed = target - nums[i];
-    if (hashset.has(confirmed)) {
-      return [nums.indexOf(confirmed), i];
+    let diff = target - nums[i];
+    if (hashmap.has(diff)) {
+      return [hashmap.get(diff), i];
     }
-    hashset.add(nums[i]);
+    hashmap.set(nums[i], i);
   }
 }
 
-// Initialize an empty Set called hashset.
+// Initialize an empty Map called hashmap.
 
 // Loop through each index i in nums:
 
-//     Calculate confirmed = target - nums[i].
+//     Calculate diff = target - nums[i].
 
-//     If hashset contains confirmed, return [nums.indexOf(confirmed), i].
+//     If hashmap has diff, return [hashmap.get(diff), i].
 
-//     Add nums[i] to hashset.
+//     Set nums[i] as key and i as value in hashmap.
 
-// If no pair found, function ends without return (fix: add explicit return if needed).
+// If no pair found, function ends without return (add explicit return if needed).
